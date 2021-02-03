@@ -1,5 +1,3 @@
-
-
 <div class="form-label-group">
   <input class="form-control"
   [type]="type" #input
@@ -9,7 +7,7 @@
    [placeholder]="placeholder">
 
    <div class="d-flex">
-    <span class="v" 
+    <span class="v"
     *ngIf="(isRequired && controlDir && controlDir.control.valid &&
     controlDir.control.touched) || !isRequired && input.value.length>0">
       <img src="./assets/images/v.svg">
@@ -20,10 +18,10 @@
     </label>
 
     <span class="error"
-     *ngIf="controlDir && !controlDir.control.valid 
+     *ngIf="controlDir && !controlDir.control.valid
      && controlDir.control.touched">{{errorMsg}}</span>
 </div>
-    
+
 
 
 </div>

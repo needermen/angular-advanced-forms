@@ -38,7 +38,9 @@ export class GenericInputWithoutValidationComponent implements ControlValueAcces
   }
 
   writeValue(obj: any): void {
-    this.input.nativeElement.value = obj;
+    if (this.input && this.input.nativeElement) {
+      this.input.nativeElement.value = obj;
+    }
   }
 
   registerOnChange(fn: any): void {

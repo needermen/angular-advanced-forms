@@ -1,8 +1,5 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Self, Optional, } from '@angular/core';
-import {
-  ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl,
-  ValidatorFn, Validators, NG_VALIDATORS, NgControl,
-} from '@angular/forms';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, Self, ViewChild,} from '@angular/core';
+import {AbstractControl, ControlValueAccessor, NgControl, Validator, ValidatorFn, Validators,} from '@angular/forms';
 
 @Component({
   selector: 'app-generic-input',
@@ -19,11 +16,10 @@ import {
   //   useExisting: GenericInputComponent
   // }]
 })
-export class GenericInputComponent implements ControlValueAccessor, Validator, OnInit {
-
-
+export class GenericInputComponent implements ControlValueAccessor, Validator, OnInit, AfterViewInit {
   @ViewChild('input') input: ElementRef;
   disabled;
+  defaultValue;
 
   @Input() type = 'text';
   @Input() isRequired = false;
@@ -50,13 +46,24 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
     control.updateValueAndValidity();
   }
 
-  onChange(event) { }
+  ngAfterViewInit(): void {
+    this.writeValue(this.defaultValue);
+  }
 
-  onTouched() { }
+  onChange(event) {
+  }
+
+  onTouched() {
+  }
 
   writeValue(obj: any): void {
-    this.input.nativeElement.value = obj;
+    if (this.input && this.input.nativeElement) {
+      this.input.nativeElement.value = obj;
+    } else {
+      this.defaultValue = obj;
+    }
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
