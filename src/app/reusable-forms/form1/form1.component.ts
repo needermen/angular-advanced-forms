@@ -1,4 +1,4 @@
-import { Address } from './../../core/address-form/address';
+import { Address } from '../../core/6-address-form/address';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 

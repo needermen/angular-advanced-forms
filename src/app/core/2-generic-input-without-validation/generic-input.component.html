@@ -1,0 +1,15 @@
+<div class="form-label-group">
+  <input class="form-control"
+         [type]="type" #input
+         (input)="onChange($event.target.value)"
+         (blur)="onTouched()"
+         [disabled]="disabled"
+         [placeholder]="placeholder">
+
+  <div class="d-flex">
+    <label class="mr-auto">{{label}}
+      <span class="required" *ngIf="isRequired">*</span>
+    </label>
+  </div>
+</div>
+

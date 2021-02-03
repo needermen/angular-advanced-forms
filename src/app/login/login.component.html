@@ -3,15 +3,13 @@
     <h1 class="h3 mb-3 font-weight-normal">Login Page</h1>
   </div>
 
-  <app-generic-input [placeholder]="'Email'"
-  [isRequired]="true"
-  [errorMsg]="'Please enter your name'"
-  [label] = "'User Email'"
-  [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'"
-    ngModel name="email"></app-generic-input>
+  <app-generic-input-w-v [placeholder]="'Email'"
+                           [label]="'User Email'"
+                           ngModel name="email">
+  </app-generic-input-w-v>
 
   <app-my-password-input ngModel name="password"></app-my-password-input>
 
- 
+
   <button class="btn btn-lg btn-primary btn-block" [disabled]="!f.valid" type="submit">Sign in</button>
 </form>

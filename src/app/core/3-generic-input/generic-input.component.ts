@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Self, Optional, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Self, Optional, } from '@angular/core';
 import {
   ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, AbstractControl,
-  ValidatorFn, Validators, NG_VALIDATORS, NgControl, NgForm
+  ValidatorFn, Validators, NG_VALIDATORS, NgControl,
 } from '@angular/forms';
 
 @Component({
@@ -26,7 +26,7 @@ export class GenericInputComponent implements ControlValueAccessor, Validator, O
   disabled;
 
   @Input() type = 'text';
-  @Input() isRequired: boolean = false;
+  @Input() isRequired = false;
   @Input() pattern: string = null;
   @Input() label: string = null;
   @Input() placeholder: string;

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { FirstComponent } from './first/first.component';
-import { ResuableFormsValueAccesorComponent } from './reusable-forms/resuable-forms-value-accesor/resuable-forms-value-accesor.component';
+import { ResuableFormsValueAccesorComponent } from './resuable-forms-value-accesor/resuable-forms-value-accesor.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
