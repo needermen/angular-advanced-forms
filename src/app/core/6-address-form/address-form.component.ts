@@ -1,26 +1,24 @@
-
-import { Component, OnInit, Input } from '@angular/core';
-import { ControlContainer, FormGroupDirective, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Address } from './address';
+import {Component, Input, OnInit} from '@angular/core';
+import {ControlContainer, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Address} from './address';
 
 @Component({
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.scss'],
-  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
+  styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent implements OnInit {
 
   @Input() address: Address;
   form: FormGroup;
   constructor(
-    private ctrlContainer: FormGroupDirective,
+    private ctrlContainer: ControlContainer,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.form = this.ctrlContainer.form;
+    this.form = this.ctrlContainer.control as FormGroup;
 
-    this.form.addControl('addressForm',
+    this.form.addControl('v3',
       this.formBuilder.group({
         'firstName': [null, [Validators.required]],
         'lastName': [null, [Validators.required]],

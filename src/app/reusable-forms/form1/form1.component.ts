@@ -1,6 +1,5 @@
-import { Address } from '../../core/6-address-form/address';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-form1',
@@ -9,16 +8,22 @@ import { FormGroup } from '@angular/forms';
 })
 export class Form1Component implements OnInit {
 
-  addressForm: FormGroup;
-  address: Address;
-  constructor() { }
+  form: FormGroup;
+  formCOntrol: FormControl
+
+  constructor() {
+  }
 
   ngOnInit() {
-    this.addressForm = new FormGroup({});
+    this.form = new FormGroup({
+      address: new FormGroup({}),
+      personal_info: new FormGroup({})
+    });
   }
 
   onSubmit() {
-    console.log(this.addressForm.value);
+    console.log(this.form.value);
+    console.log(this.form);
   }
 
 }
